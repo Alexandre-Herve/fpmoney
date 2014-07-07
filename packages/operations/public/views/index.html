@@ -1,0 +1,36 @@
+<div class="" data-ng-controller="OperationsController">
+  <alert ng-repeat="alert in alerts" type="{{ alert.type }}">
+    <span class="pull-right glyphicon glyphicon-remove" ng-click="alerts.splice($index, 1)"></span>
+    {{ alert.msg }}
+  </alert>
+  <table class="table table-responsive table-striped table-bordered table-hover">
+    
+    <tr>
+      <th>Montant</th>
+      <th>Débité</th>
+      <th>Crédité</th>
+      <th>Suppr</th>
+
+    </tr>
+
+    <tr ng-repeat="operation in operations">
+
+    <td>
+      {{ operation.amount }}
+    </td>
+
+    <td>
+      {{ operation.debtor.email }}
+    </td>
+
+    <td>
+      {{ operation.creditor.email }}
+    </td>
+
+      <td>
+      <span class="badge badge-danger glyphicon glyphicon-remove" ng-click="remove( operation, $index )"> </span>
+    </td>
+
+    </tr>
+  </table>
+</div>

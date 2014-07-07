@@ -130,6 +130,22 @@ exports.user = function(req, res, next, id) {
 };
 
 /**
+ * Find all users 
+ */
+
+exports.all = function( rew, res ){
+  User.find().exec( function( err, users ){
+        if (err) {
+            return res.jsonp(500, {
+                error: 'Cannot list the users'
+            });
+        }
+        res.jsonp(users);
+
+  });
+};
+
+/**
  * Resets the password
  */
 
