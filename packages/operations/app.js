@@ -22,11 +22,6 @@ Operations.register(function(app, auth, database) {
         link: 'operations',
         roles: ['authenticated'],
         menu: 'main'
-    }).add({
-        title: 'Ajouter une opération',
-        link: 'new operation',
-        roles: ['authenticated'],
-        menu: 'main'
     });
 
     /**

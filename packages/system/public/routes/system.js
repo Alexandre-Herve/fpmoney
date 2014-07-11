@@ -4,14 +4,16 @@
 angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
         // For unmatched routes:
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/board');
 
         // states for my app
+        /*
         $stateProvider
             .state('home', {
                 url: '/',
                 templateUrl: 'system/views/index.html'
             });
+            */
     }
 ]).config(['$locationProvider',
     function($locationProvider) {

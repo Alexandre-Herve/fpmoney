@@ -97,3 +97,23 @@ exports.all = function(req, res) {
     });
 };
 
+/**
+ * list my operations
+ */
+
+exports.mines = function(req, res) {
+    Operation.find({ 
+      $or: [
+        { debtor: req.user.id }, 
+        { creditor: req.user._id }
+      ]
+    }).sort('-created').populate('creditor').populate('debtor').exec(function(err, operations) {
+        if (err) {
+            return res.jsonp(500, {
+                error: 'Cannot list the operations'
+            });
+        }
+        res.jsonp(operations);
+
+    });
+};
