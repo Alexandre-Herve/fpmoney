@@ -1,0 +1,23 @@
+<section data-ng-controller="UsersController">
+  <table class="table table-striped table-bordered table-responsive">
+
+    <thead>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Débits</th>
+        <th>Crédits</th>
+        <th>Solde</th>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.operations | debits:user._id }}</td>
+        <td>{{ user.operations | credits:user._id }}</td>
+        <td>{{ ( user.operations | credits:user._id ) - ( user.operations | debits:user._id )}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</section>

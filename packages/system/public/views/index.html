@@ -1,3 +1,31 @@
-<section data-ng-controller="IndexController">
-    <h1 mean-token="'home-default'">This is the home view</h1>
-</section>
+<div data-ng-controller="BoardController">
+  <h3>{{ Global.user.name }}: </h3>
+  <h1>Solde: {{ credits - debits }} €</h1>
+  <p class="lead">Débits: {{ debits }}</p>
+  <p class="lead">Crédits: {{ credits }}</p>
+  <table class="table table-responsive table-striped table-bordered table-hover">
+
+    <tr>
+      <th>Montant</th>
+      <th>Débité</th>
+      <th>Crédité</th>
+    </tr>
+
+    <tr ng-repeat="operation in operations">
+      <td> 
+        <span ng-class="{'text-danger': operation.debtor._id == Global.user._id, 'text-success': operation.creditor._id == Global.user._id}">
+          {{ operation.amount }}
+        </span>
+      </td>
+
+      <td>
+        {{ operation.debtor.email }}
+      </td>
+
+      <td>
+        {{ operation.creditor.email }}
+      </td>
+    </tr>
+
+  </table>
+</div>

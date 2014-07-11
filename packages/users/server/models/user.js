@@ -55,6 +55,18 @@ var UserSchema = new Schema({
         type: String,
         default: 'local'
     },
+    debts: {
+      type: Number,
+      default: 0
+    },
+    credits: {
+      type: Number,
+      default: 0
+    },
+    updated: {
+      type: Date,
+      default: Date.now
+    },
     salt: String,
     resetPasswordToken: String,
     resetPasswordExpires: Date,

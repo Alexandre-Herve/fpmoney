@@ -57,10 +57,6 @@ angular.module('mean.users').config(['$stateProvider',
                 resolve: {
                     loggedin: checkLoggedOut
                 }
-            })
-            .state('board', {
-                url: '/board',
-                templateUrl: 'users/views/board.html'
             });
     }
 ]);
